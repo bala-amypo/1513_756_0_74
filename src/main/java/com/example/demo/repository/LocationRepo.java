@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entity.LocationEntity;
 
-public LocationRepo extends JpaRepository<LocationEntity,Long>{
+interface LocationRepo extends JpaRepository<LocationEntity,Long>{
     
 } 
