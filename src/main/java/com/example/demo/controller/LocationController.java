@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,14 +12,20 @@ import com.example.demo.service.LocationService;
 
 @RestController
 public class LocationController {
-    @Autowired
-    LocationService locationService;
-    @PostMapping("/addlocation")
-    public LocationEntity add(@RequestBody LocationEntity le){
-        return locationService.createLocation(le);
+
+    private final LocationService locationService;
+
+    public LocationController(LocationService locationService) {
+        this.locationService = locationService;
     }
-    @GetMapping("showlocation")
-    public List<LocationEntity> show(){
-        return locationService.getall();
+
+    @PostMapping("/addlocation")
+    public LocationEntity add(@RequestBody LocationEntity location) {
+        return locationService.createLocation(location);
+    }
+
+    @GetMapping("/showlocation")
+    public List<LocationEntity> show() {
+        return locationService.getAll();
     }
 }
