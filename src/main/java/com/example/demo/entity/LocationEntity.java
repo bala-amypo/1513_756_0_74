@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 
 @Entity
 public class LocationEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,16 +14,6 @@ public class LocationEntity {
     private String name;
     private Double latitude;
     private Double longitude;
-
-    public LocationEntity() {
-    }
-
-    public LocationEntity(Long id, String name, Double latitude, Double longitude) {
-        this.id = id;
-        this.name = name;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
 
     public Long getId() {
         return id;
@@ -56,5 +45,15 @@ public class LocationEntity {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
+    }
+
+    public LocationEntity(Long id, String name, Double latitude, Double longitude) {
+        this.id = id;
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public LocationEntity() {
     }
 }
